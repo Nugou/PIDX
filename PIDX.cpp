@@ -13,24 +13,45 @@
 #include <PIDX.h>
 
 
-PID::PID(double _kP, double _kI, double _kD, int _setPoint){
+PID::PID(double _kP, double _kI, double _kD, int _TargetPoint){
 	kP = _kP;
 	kI = _kI;
 	kD = _kD;
-	setPoint = _setPoint;
+	TargetPoint = _TargetPoint;
+	setRange = false;
 }
 
-double PID::Process(){
+double PID::Process(double value){
+	error = TargetPoint - value;
 	
-	return ;
-}
-
-
-void PID::setConstants(double _kP, double _kI, double _kD){
+	realTime = (millis() - lastTime)/1000.0;
+	lastTime = millis();
 	
+	P = error * kP;
+	I += error * kI;
+	D = (lastValue - value) * kD / realTime;
+	
+	lastValue = value;
+	
+	PID = P + I + D;
+	
+	if(PID > maxRangeOutput && setRange){
+		PID = maxRangeOutput;
+	}else if(PID < minRangeOutput && setRange){
+		PID = minRangeOutput;
+	}
+	
+	return PID;
 }
 
 
+void PID::setConstants(double new_kP, double new_kI, double new_kD){
+	kP = new_kP;
+	kI = new_kI;
+	kD = new_kD;
+}
+
+/*
 void PID::setSampleTime(int NewSampleTime){
    if (NewSampleTime > 0){
 	   
@@ -38,9 +59,20 @@ void PID::setSampleTime(int NewSampleTime){
 	   sampleTime = 0;
    }
 }
+*/
 
-void PID::SetOutputLimits(double Min, double Max){
-	
+void PID::setOutputLimits(double Min, double Max){
+	minRangeOutput = Min;
+	maxRangeOutput = Max;
+	setRange = true;
+}
+
+void PID::setTargetPoint(int new_TargetPoint){
+	TargetPoint = newTargetPoint;
+}
+
+void PID::setNotRange(){
+	setRange = false;
 }
 
 

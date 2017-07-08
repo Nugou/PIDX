@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map PS2X
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PIDX	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+Process	KEYWORD2
+setConstants	KEYWORD2
+setOutputLimits	KEYWORD2
+setSampleTime	KEYWORD2
+setTargetPoint	KEYWORD2
+setNotRange		KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################

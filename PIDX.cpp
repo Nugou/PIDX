@@ -13,7 +13,7 @@
 #include <PIDX.h>
 
 
-PID::PID(double _kP, double _kI, double _kD, int _TargetPoint){
+PID::PID(double _kP, double _kI, double _kD, double _TargetPoint){
 	kP = _kP;
 	kI = _kI;
 	kD = _kD;

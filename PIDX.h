@@ -1,7 +1,7 @@
 #ifndef PIDX_h
 #define PIDX_h
 
-class PID{
+class PID {
 	private:
 		double kP, kI, kD;
 		double P, I, D;
@@ -10,18 +10,18 @@ class PID{
 		double error;
 		double realTime, lastTime;
 		double lastValue;
+		double TargetPoint; 
 		
-		int TargetPoint;
 		//int sampleTime;
 		
 		boolean setRange;
 	
 	public:
-		double Process(double value);
-		void setConstants(double kP, double kI, double kD);
+		double Process(double);
+		void setConstants(double, double, double);
 		//void setSampleTime(int smapleTime);
-		void setOutputLimits(double Min, double Max);
-		void setTargetPoint(int new_TargetPoint);
+		void setOutputLimits(double, double);
+		void setTargetPoint(int);
 		void setNotRange();
 };
 #endif

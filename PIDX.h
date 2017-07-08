@@ -17,6 +17,7 @@ class PIDX {
 		boolean setRange;
 	
 	public:
+		PIDX(double, double, double, double);
 		double Process(double);
 		void setConstants(double, double, double);
 		//void setSampleTime(int smapleTime);

@@ -68,7 +68,7 @@ void PIDX::setOutputLimits(double Min, double Max){
 }
 
 void PIDX::setTargetPoint(int new_TargetPoint){
-	TargetPoint = newTargetPoint;
+	TargetPoint = new_TargetPoint;
 }
 
 void PIDX::setNotRange(){

@@ -18,6 +18,8 @@ PIDX::PIDX(double _kP, double _kI, double _kD, double _TargetPoint){
 	kI = _kI;
 	kD = _kD;
 	TargetPoint = _TargetPoint;
+	lastValue = 0.0;
+	lastTime = 0;
 	setRange = false;
 }
 
@@ -28,7 +30,7 @@ double PIDX::Process(double value){
 	lastTime = millis();
 	
 	P = error * kP;
-	I += error * kI;
+	I += error * kI / realTime;
 	D = (lastValue - value) * kD / realTime;
 	
 	lastValue = value;
@@ -50,16 +52,6 @@ void PIDX::setConstants(double new_kP, double new_kI, double new_kD){
 	kI = new_kI;
 	kD = new_kD;
 }
-
-/*
-void PIDX::setSampleTime(int NewSampleTime){
-   if (NewSampleTime > 0){
-	   
-   }else{  
-	   sampleTime = 0;
-   }
-}
-*/
 
 void PIDX::setOutputLimits(double Min, double Max){
 	minRangeOutput = Min;

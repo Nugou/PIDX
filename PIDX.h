@@ -12,15 +12,12 @@ class PIDX {
 		double lastValue;
 		double TargetPoint; 
 		
-		//int sampleTime;
-		
-		boolean setRange;
+		bool setRange;
 	
 	public:
 		PIDX(double, double, double, double);
 		double Process(double);
 		void setConstants(double, double, double);
-		//void setSampleTime(int smapleTime);
 		void setOutputLimits(double, double);
 		void setTargetPoint(int);
 		void setNotRange();

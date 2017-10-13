@@ -30,7 +30,7 @@ double PIDX::Process(double value){
 	lastTime = millis();
 	
 	P = error * kP;
-	I += error * kI / realTime;
+	I = I + (error * kI) * realTime;
 	D = (lastValue - value) * kD / realTime;
 	
 	lastValue = value;

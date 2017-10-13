@@ -9,8 +9,8 @@ To install, download and extract to the folder 'libraries' of arduino(C:\Program
 
 # Comands
 
-Instance: PIDX MYPID(double, double, double, double); Instance with: kP(constans of proporcion), kI(constans of integracion),
-kD(constans of Derivation), TargetPoint;
+Instance: PIDX MYPID(double, double, double, double); 
+Parameters with: kP(constans of proportion), kI(constans of integration), kD(constans of Derivation), TargetPoint;
 
 *-> name of reference like 'MYPID';
 
